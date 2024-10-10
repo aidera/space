@@ -35,9 +35,9 @@ export default function SpaceComposition() {
 
         <EffectComposer>
           <Bloom
-            intensity={1}
-            luminanceThreshold={0.2}
-            luminanceSmoothing={0.1}
+            intensity={2}
+            luminanceThreshold={0.01}
+            luminanceSmoothing={0.5}
           />
         </EffectComposer>
       </Suspense>
