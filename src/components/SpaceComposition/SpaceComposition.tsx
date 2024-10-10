@@ -7,25 +7,38 @@ import PlanetModel from './Planet/PlanetModel';
 import Camera from './Camera';
 import FogModel from './FogModel';
 import RimLight from './RimLight';
-import FillLight1 from './FillLight1';
+import FillLight from './FillLight';
+import Background from './Background';
+import { ACESFilmicToneMapping } from 'three';
 
 export default function SpaceComposition() {
   return (
-    <Canvas dpr={[1, 2]} shadows>
-      <color attach="background" args={['#050505']} />
+    <Canvas
+      dpr={[1, 2]}
+      gl={{
+        antialias: true,
+        toneMapping: ACESFilmicToneMapping,
+      }}
+    >
+      <color attach="background" args={['#000000']} />
       <Suspense fallback={<Loader />}>
+        <Background />
         <PlanetModel />
 
         <FogModel />
 
         <RimLight />
-        <FillLight1 />
+        <FillLight />
 
         <Camera />
         {/* <OrbitControls /> */}
 
         <EffectComposer>
-          <Bloom intensity={.5} />
+          <Bloom
+            intensity={1}
+            luminanceThreshold={0.2}
+            luminanceSmoothing={0.1}
+          />
         </EffectComposer>
       </Suspense>
     </Canvas>

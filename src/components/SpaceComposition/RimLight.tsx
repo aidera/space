@@ -17,7 +17,7 @@ export default function RimLight() {
     rotationY,
     rotationZ,
   } = useControls('Rim Light', {
-    intensity: { value: 110, min: 0, max: 1000 },
+    intensity: { value: 60, min: 0, max: 1000 },
     color: '#ffffff',
     width: { value: 2.3, min: 0, max: 10 },
     height: { value: 2, min: 0, max: 10 },

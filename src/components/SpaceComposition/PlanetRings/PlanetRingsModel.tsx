@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ThreeElements, useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
-import { Material, DoubleSide } from 'three';
+import { Material, DoubleSide, Color } from 'three';
 import { isMesh } from '../../../utils';
 
 export default function PlanetRingsModel() {
@@ -17,7 +17,7 @@ export default function PlanetRingsModel() {
         if (isMesh(child)) {
           const material = child.material as Material;
           material.side = DoubleSide;
-          material.opacity = 0.2;
+          material.opacity = 0.4;
           material.needsUpdate = true;
         }
       });
