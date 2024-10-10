@@ -1,3 +1,3 @@
 export default function FogModel() {
-  return <fog attach="fog" args={['#050505', -2, 50]} />;
+  return <fog attach="fog" args={['#050505', -2, 20]} />;
 }

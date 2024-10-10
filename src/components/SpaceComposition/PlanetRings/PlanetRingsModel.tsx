@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ThreeElements, useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
-import { Material, DoubleSide, Color } from 'three';
+import { Material, DoubleSide } from 'three';
 import { isMesh } from '../../../utils';
 
 export default function PlanetRingsModel() {
