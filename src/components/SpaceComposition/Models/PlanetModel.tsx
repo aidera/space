@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import { ThreeElements, useLoader } from '@react-three/fiber';
 import { useControls } from 'leva';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
-import PlanetRingsModel from '../PlanetRings/PlanetRingsModel';
-import OrbitPlanetsModel from '../OrbitPlanets/OrbitPlanetsModel';
+import PlanetRingsModel from './PlanetRingsModel';
+import OrbitPlanetsModel from './OrbitPlanetsModel';
 import gsap from 'gsap';
 
 export default function PlanetModel() {

@@ -13,6 +13,7 @@
   left: 0;
   z-index: 1;
   user-select: none;
+  overflow: hidden;
 }
 
 .canvas-overlay {
@@ -22,4 +23,5 @@
   top: 0;
   left: 0;
   z-index: 2;
+  overflow: hidden;
 }

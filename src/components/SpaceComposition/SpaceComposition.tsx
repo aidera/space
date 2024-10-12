@@ -4,15 +4,17 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import { OrbitControls } from '@react-three/drei';
 import { ACESFilmicToneMapping } from 'three';
 import Loader from './Loader';
-import PlanetModel from './Planet/PlanetModel';
+import PlanetModel from './Models/PlanetModel';
 import Camera from './Camera';
 import FogModel from './FogModel';
-import RimLight from './RimLight';
-import FillLight from './FillLight';
+import RimLight from './Lights/RimLight';
+import FillLight from './Lights/FillLight';
 import Background from './Background';
+import Vignette from './Vignette/Vignette';
 
 export default function SpaceComposition() {
   return (
+    <>
     <Canvas
       dpr={[1, 2]}
       gl={{
@@ -42,5 +44,7 @@ export default function SpaceComposition() {
         </EffectComposer>
       </Suspense>
     </Canvas>
+    <Vignette />
+    </>
   );
 }
