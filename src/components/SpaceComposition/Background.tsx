@@ -43,9 +43,9 @@ export default function Background() {
   }, [meshRef.current]);
 
   useFrame((_, delta) => {
-    if (meshRef.current) {
-      meshRef.current.position.x += 0.01 * delta;
-      meshRef.current.position.y += 0.01 * delta;
+    if (material.map) {
+      material.map.offset.x -= 0.002 * delta;
+      material.map.offset.y -= 0.001 * delta;
     }
   });
 
