@@ -1,0 +1,15 @@
+.glare {
+  width: 120vw;
+  height: 120vw;
+  position: absolute;
+  top: -60vw;
+  right: -60vw;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}

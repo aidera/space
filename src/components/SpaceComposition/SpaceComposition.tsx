@@ -11,6 +11,7 @@ import RimLight from './Lights/RimLight';
 import FillLight from './Lights/FillLight';
 import Background from './Background';
 import Vignette from './Vignette/Vignette';
+import Glare from './Glare/Glare';
 
 export default function SpaceComposition() {
   return (
@@ -46,6 +47,7 @@ export default function SpaceComposition() {
     </Canvas>
     
     <Vignette />
+    <Glare />
     </>
   );
 }
