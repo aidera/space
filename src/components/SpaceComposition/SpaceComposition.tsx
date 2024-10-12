@@ -44,6 +44,7 @@ export default function SpaceComposition() {
         </EffectComposer>
       </Suspense>
     </Canvas>
+    
     <Vignette />
     </>
   );
