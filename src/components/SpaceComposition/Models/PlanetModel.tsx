@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import { ThreeElements, useLoader } from '@react-three/fiber';
-import { useControls } from 'leva';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 import PlanetRingsModel from './PlanetRingsModel';
 import OrbitPlanetsModel from './OrbitPlanetsModel';
-import gsap from 'gsap';
 
 export default function PlanetModel() {
   const sceneRef = useRef<ThreeElements['primitive']>();
@@ -12,11 +11,6 @@ export default function PlanetModel() {
     GLTFLoader,
     `${import.meta.env.BASE_URL}planet.glb`
   );
-  const { rotationX, rotationY, rotationZ } = useControls('Planet', {
-    rotationX: { value: 0.11, min: -10, max: 10, step: 0.01 },
-    rotationY: { value: 0.32, min: -10, max: 10, step: 0.01 },
-    rotationZ: { value: -0.19, min: -10, max: 10, step: 0.01 },
-  });
 
   useEffect(() => {
     if (sceneRef.current) {
@@ -30,7 +24,7 @@ export default function PlanetModel() {
   }, [sceneRef.current]);
 
   return (
-    <group rotation={[rotationX, rotationY, rotationZ]}>
+    <group rotation={[0.11, 0.32, -0.19]}>
       <primitive object={sceneModel.scene} ref={sceneRef} />
       <OrbitPlanetsModel />
       <PlanetRingsModel />
