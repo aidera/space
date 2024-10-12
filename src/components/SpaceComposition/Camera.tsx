@@ -14,7 +14,7 @@ export default function Camera() {
       const y = -(clientY / innerHeight) * 2 + 1;
 
       if (cameraRef.current) {
-        cameraRef.current.position.x = 0.6 + x * 0.01;
+        cameraRef.current.position.x = 0.6 + x * 0.0025;
         cameraRef.current.position.y = -0.2 + y * 0.0025;
         cameraRef.current.rotation.x = y * 0.001;
         cameraRef.current.rotation.y = x * -0.001;
