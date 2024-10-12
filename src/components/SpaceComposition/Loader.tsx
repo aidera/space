@@ -1,7 +1,17 @@
+import { useEffect } from 'react';
 import { Html, useProgress } from '@react-three/drei';
 
-export default function Loader() {
+export default function Loader(params: {
+  isLoaded: boolean;
+  setIsLoaded: (status: boolean) => void;
+}) {
   const { progress } = useProgress();
+
+  useEffect(() => {
+    if (progress >= 100 && !params.isLoaded) {
+      params.setIsLoaded(true);
+    }
+  }, [progress, params.isLoaded]);
 
   return (
     <Html>

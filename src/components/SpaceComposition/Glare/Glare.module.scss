@@ -6,10 +6,22 @@
   right: -60vw;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.6) 0%,
     rgba(255, 255, 255, 0) 50%
   );
   background-position: center;
   background-repeat: no-repeat;
   pointer-events: none;
+
+  opacity: 0;
+  animation: AppearAnimation 0.5s ease-in-out forwards;
+}
+
+@keyframes AppearAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
