@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import { OrbitControls } from '@react-three/drei';
+import { ACESFilmicToneMapping } from 'three';
 import Loader from './Loader';
 import PlanetModel from './Planet/PlanetModel';
 import Camera from './Camera';
@@ -9,7 +10,6 @@ import FogModel from './FogModel';
 import RimLight from './RimLight';
 import FillLight from './FillLight';
 import Background from './Background';
-import { ACESFilmicToneMapping } from 'three';
 
 export default function SpaceComposition() {
   return (

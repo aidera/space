@@ -1,25 +1,33 @@
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 import { ThreeElements, useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
-import { Material, DoubleSide } from 'three';
+import { useControls } from 'leva';
+import gsap from 'gsap';
 import { isMesh } from '../../../utils';
 
-export default function PlanetRingsModel() {
+export default function OrbitPlanetsModel() {
   const sceneRef = useRef<ThreeElements['primitive']>();
   const sceneModel = useLoader(
     GLTFLoader,
-    `${import.meta.env.BASE_URL}planet-rings.glb`
+    `${import.meta.env.BASE_URL}planets.glb`
   );
+  const { rotationX, rotationY, rotationZ } = useControls('Orbit Planets', {
+    rotationX: { value: 0, min: -10, max: 10, step: 0.01 },
+    rotationY: { value: -0.45, min: -10, max: 10, step: 0.01 },
+    rotationZ: { value: 0, min: -10, max: 10, step: 0.01 },
+  });
 
   useEffect(() => {
     if (sceneModel) {
       sceneModel.scene.traverse((child) => {
         if (isMesh(child)) {
-          const material = child.material as Material;
-          material.side = DoubleSide;
-          material.opacity = 0.4;
-          material.needsUpdate = true;
+            const randomDuration = Math.random() * 100 + 100;
+          gsap.to(child.rotation, {
+            y: `-=${Math.PI * 2}`,
+            duration: randomDuration,
+            repeat: -1,
+            ease: 'none',
+          });
         }
       });
     }
@@ -29,7 +37,7 @@ export default function PlanetRingsModel() {
     if (sceneRef.current) {
       gsap.to(sceneRef.current.rotation, {
         y: `-=${Math.PI * 2}`,
-        duration: 200,
+        duration: 800,
         repeat: -1,
         ease: 'none',
       });
@@ -37,7 +45,7 @@ export default function PlanetRingsModel() {
   }, [sceneRef.current]);
 
   return (
-    <group>
+    <group rotation={[rotationX, rotationY, rotationZ]}>
       <primitive object={sceneModel.scene} ref={sceneRef} />
     </group>
   );

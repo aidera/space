@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { ThreeElements, useLoader } from '@react-three/fiber';
+import { useControls } from 'leva';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 import PlanetRingsModel from '../PlanetRings/PlanetRingsModel';
-import { useControls } from 'leva';
-import { Material } from 'three';
-import { isMesh } from '../../../utils';
+import OrbitPlanetsModel from '../OrbitPlanets/OrbitPlanetsModel';
+import gsap from 'gsap';
 
 export default function PlanetModel() {
   const sceneRef = useRef<ThreeElements['primitive']>();
@@ -19,19 +19,20 @@ export default function PlanetModel() {
   });
 
   useEffect(() => {
-    if (sceneModel) {
-      sceneModel.scene.traverse((child) => {
-        if (isMesh(child)) {
-          const material = child.material as Material;
-          material.needsUpdate = true;
-        }
+    if (sceneRef.current) {
+      gsap.to(sceneRef.current.rotation, {
+        y: `-=${Math.PI * 2}`,
+        duration: 300,
+        repeat: -1,
+        ease: 'none',
       });
     }
-  }, [sceneModel]);
+  }, [sceneRef.current]);
 
   return (
     <group rotation={[rotationX, rotationY, rotationZ]}>
       <primitive object={sceneModel.scene} ref={sceneRef} />
+      <OrbitPlanetsModel />
       <PlanetRingsModel />
     </group>
   );
