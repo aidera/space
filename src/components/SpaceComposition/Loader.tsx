@@ -14,15 +14,17 @@ export default function Loader(params: {
   }, [progress, params.isLoaded]);
 
   return (
-    <Html>
+    <Html transform={false}>
       <div
         style={{
           textAlign: 'center',
           width: '200px',
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
+          height: '100px',
+          top: '0',
+          left: '0',
+          transform: 'translateX(-50%) translateY(200%)',
+          zIndex: 1000,
+          color: 'white',
         }}
       >
         {Math.round(progress)}% Loading ...

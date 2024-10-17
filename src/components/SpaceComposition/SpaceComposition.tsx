@@ -26,6 +26,7 @@ export default function SpaceComposition() {
         }}
       >
         <color attach="background" args={['#000000']} />
+
         <Suspense
           fallback={<Loader isLoaded={isLoaded} setIsLoaded={setIsLoaded} />}
         >
