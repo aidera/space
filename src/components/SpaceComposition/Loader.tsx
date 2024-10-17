@@ -28,6 +28,8 @@ export default function Loader(params: {
         }}
       >
         {Math.round(progress)}% Loading ...
+        <br />
+        3D is loading. It can take a while
       </div>
     </Html>
   );
