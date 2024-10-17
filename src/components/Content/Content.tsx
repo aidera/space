@@ -3,7 +3,8 @@ import styles from './Content.module.scss';
 export default function Content() {
   return (
     <div className={styles.container}>
-      <div className={styles['border-decoration']}></div>
+      <div className={styles['border-decoration-top']}></div>
+      <div className={styles['border-decoration-bottom']}></div>
 
       <div className={styles.text}>
         <div className={styles.wrapper}>
