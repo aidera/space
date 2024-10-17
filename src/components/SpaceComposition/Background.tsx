@@ -52,7 +52,7 @@ export default function Background() {
   return (
     <primitive
       object={meshRef.current}
-      position={[0, 0, -5]} // Adjust position to place it appropriately in the background
+      position={[0, 0, -5]}
       scale={[10, 10, 10]}
     />
   );

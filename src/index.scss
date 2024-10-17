@@ -129,7 +129,7 @@ table {
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Alumni Sans Pinstripe', sans-serif;
   font-weight: 400;
   box-sizing: border-box;
 }
@@ -138,7 +138,9 @@ a {
   text-decoration: none;
   color: inherit;
 
-  &:focus, &:visited, &:active {
+  &:focus,
+  &:visited,
+  &:active {
     color: inherit;
     text-decoration: none;
   }
